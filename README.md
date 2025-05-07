@@ -54,7 +54,9 @@ On LinkedIn job details pages and company profile pages, a "Flag Company..." but
 ![Flag Dropdown](https://github.com/MaffyxProjects/LinkedIn-Job-Helper/blob/main/Screenshot%202025-05-07%20095618.png?raw=true)
 
 ![Setting Flag Note](https://github.com/MaffyxProjects/LinkedIn-Job-Helper/blob/main/Screenshot%202025-05-07%20102627.png?raw=true)
+
 ![Note Set Confirmation](https://github.com/MaffyxProjects/LinkedIn-Job-Helper/blob/main/Screenshot%202025-05-07%20102636.png?raw=true)
+
 ![Note Example on page](https://github.com/MaffyxProjects/LinkedIn-Job-Helper/blob/main/Screenshot%202025-05-07%20102641.png?raw=true)
 
 *   Click this button to open a dropdown menu.
@@ -69,8 +71,11 @@ On LinkedIn job details pages and company profile pages, a "Flag Company..." but
     *   The button text changes to "Flagged 🚩/⚠️/✅". Clicking it again allows you to edit the note, change the flag type, or remove the flag.
 
 ![Green Flag](https://github.com/MaffyxProjects/LinkedIn-Job-Helper/blob/main/Screenshot%202025-05-07%20095823.png?raw=true)
+
 ![Yellow Flag](https://github.com/MaffyxProjects/LinkedIn-Job-Helper/blob/main/Screenshot%202025-05-07%20095840.png?raw=true)
+
 ![Red Flag](https://github.com/MaffyxProjects/LinkedIn-Job-Helper/blob/main/Screenshot%202025-05-07%20095804.png?raw=true)
+
 ![Long Note Warning](https://github.com/MaffyxProjects/LinkedIn-Job-Helper/blob/main/Screenshot%202025-05-07%20100856.png?raw=true)
 
 
