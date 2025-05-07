@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Job Helper - Documentation</title>
+    <link rel="stylesheet" href="documentation.css">
+</head>
+<body>
+    <header>
+        <h1>LinkedIn Job Helper - Documentation</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#troubleshooting">Troubleshooting</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>The LinkedIn Job Helper extension is designed to streamline your job search experience on LinkedIn. It allows you to hide jobs you've already seen or are not interested in, flag companies with custom notes, and quickly access relevant company information directly from LinkedIn pages.</p>
+        </section>
+
+        <section id="installation">
+            <h2>Installation (for local development/testing)</h2>
+            <p>You can download the latest version of the extension (ZIP file) from the following link: <a href="https://foxhunt.s3.us-west-2.amazonaws.com/Chrome+Extensions/LinkedIn+Job+Helper/LinkedIn+Job+Helper+1.0.zip" target="_blank">Download LinkedIn Job Helper 1.0.zip</a>.</p>
+            <p>Once downloaded, or if you have the extension files locally from a development folder, follow these steps:</p>
+            <ol>
+                <li>Open Google Chrome.</li>
+                <li>Navigate to <code>chrome://extensions</code> in your address bar.</li>
+                <li>
+                    Enable "Developer mode" using the toggle switch, usually found in the top right corner.
+                </li>
+                <li>
+                    Click the "Load unpacked" button.
+                </li>
+                <li>
+                    Select the directory where you've placed the extension files (the folder containing <code>manifest.json</code>).
+                </li>
+                <li>The extension should now be installed and active. You'll see its icon in your Chrome toolbar.</li>
+            </ol>
+        </section>
+
+        <section id="features">
+            <h2>Features</h2>
+
+            <article id="feature-popup">
+                <h3>Extension Popup</h3>
+                <p>Click the LinkedIn Job Helper icon in your Chrome toolbar to open the popup.</p>
+                <h4>Actions Tab:</h4>
+                <ul>
+                    <li><strong>Hide Jobs on This Page:</strong> When on a LinkedIn job search or collections page, this button attempts to click the "Dismiss" (X) button on all visible jobs. It will then try to navigate to the next page of results. </li>
+                </ul>
+                <h4>Help Tab:</h4>
+                <ul>
+                    <li><strong>Main Action Explanation:</strong> Details about the "Hide Jobs on This Page" button.</li>
+                    <li><strong>Company Flags Data Management:</strong>
+                        <ul>
+                            <li><strong>Clear All Flagged Companies:</strong> Permanently removes all companies and notes you've flagged.</li>
+                            <li><strong>Export Flagged Companies:</strong> Downloads a CSV file of your flagged companies, their flag type (red/yellow/green), and notes.</li>
+                            <li><strong>Import Flagged Companies:</strong> Allows you to upload a CSV file (matching the export format) to add or update your flagged companies.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Quick Info Buttons Explanation:</strong> Describes the on-page "Company Info..." buttons.</li>
+                    <li><strong>Flagging Companies Explanation:</strong> Describes the on-page "Flag Company..." buttons.</li>
+                    <li><strong>Troubleshooting Guide:</strong> Common issues and solutions.</li>
+                </ul>
+            </article>
+
+            <article id="feature-onpage">
+                <h3>On-Page Features (LinkedIn Website)</h3>
+
+                <h4 id="feature-hide-button">"Hide Jobs" Button (on Job Search/Collections Pages)</h4>
+                <p>An additional "Hide Jobs" button is inserted near the pagination controls on LinkedIn job search and collections pages. Clicking this button performs the same action as the "Hide Jobs on This Page" button in the popup.</p>
+
+                <h4 id="feature-flagging">Flagging Companies</h4>
+                <p>On LinkedIn job details pages and company profile pages, a "Flag Company..." button will appear.</p>
+                <ul>
+                    <li>Click this button to open a dropdown menu.</li>
+                    <li>Select a flag type:
+                        <ul>
+                            <li><strong>Red 🚩:</strong> For companies you want to avoid or have negative notes about.</li>
+                            <li><strong>Yellow ⚠️:</strong> For companies you're neutral or cautious about.</li>
+                            <li><strong>Green ✅:</strong> For companies you're positive about or want to pursue.</li>
+                        </ul>
+                    </li>
+                    <li>You'll be prompted to enter a note for the flag. Leaving the note blank and confirming will remove an existing flag or cancel adding a new one.</li>
+                    <li>Once flagged:
+                        <ul>
+                            <li>The corresponding symbol (🚩, ⚠️, ✅) will appear next to the company name in job listings.</li>
+                            <li>A colored box displaying your note will appear on the job details page and company profile page.</li>
+                            <li>The button text changes to "Flagged 🚩/⚠️/✅". Clicking it again allows you to edit the note, change the flag type, or remove the flag.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4 id="feature-quickinfo">Quick Info Buttons ("Company Info...")</h4>
+                <p>A "Company Info..." button appears on:
+                    <ul>
+                        <li>Job cards in the search results list.</li>
+                        <li>Job details pages (in the top card actions).</li>
+                        <li>Company profile pages (in the top card actions).</li>
+                    </ul>
+                Clicking this button reveals a dropdown menu with quick links:
+                <ul>
+                    <li><strong>Glassdoor Search:</strong> Opens a Google search for the company's Glassdoor reviews.</li>
+                    <li><strong>Careers Page:</strong> Opens a Google search for the company's careers/jobs page.</li>
+                    <li><strong>Company News:</strong> Opens a Google News search for the company.</li>
+                    <li><strong>Search Layoffs:</strong> Opens a Google search for recent news about layoffs at the company (past year).</li>
+                    <li><strong>View All Jobs (LI):</strong> Opens a LinkedIn job search filtered for that specific company.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="troubleshooting">
+            <h2>Troubleshooting</h2>
+            <p>For common issues and solutions, please refer to the "Troubleshooting" section within the "Help" tab of the extension popup. Key things to check:</p>
+            <ul>
+                <li>Ensure you are on a supported LinkedIn page (job search, collections, job details, or company page).</li>
+                <li>Try reloading the LinkedIn page.</li>
+                <li>Check the browser console (F12 > Console) for error messages, especially those prefixed with "[LinkedIn Job Hider]", "[LinkedIn Job Flagger]", or "[Company Info]".</li>
+                <li>If importing flags, ensure your CSV format is correct ("Company Name", "Flag Type", "Note").</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; LinkedIn Job Helper</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>LinkedIn Job Hider & Flagger</title>
+    <link rel="stylesheet" href="popup.css"> <!-- Link to new CSS -->
+    <script src="popup.js"></script>
+</head>
+<body>
+
+    <h3 class="popup-title">LinkedIn Job Helper</h3>
+
+    <div class="container">
+        <div class="tabs">
+            <button class="tab-button active" data-tab="actions">Actions</button>
+            <button class="tab-button" data-tab="help">Help</button>
+        </div>
+
+        <div id="actionsContent" class="tab-content active">
+            <button id="buttonHide" class="action-button primary">Hide Jobs on This Page</button>
+            <button id="openDocumentation" class="action-button secondary" style="margin-top: 15px;">View Full Documentation</button>
+        </div>
+
+        <div id="helpContent" class="tab-content">
+            <!-- Help content moved here -->
+            <details open> <!-- Keep it open by default initially -->
+                <summary>Help & Troubleshooting</summary>
+                <div class="help-content">
+                    <p><em>For detailed feature explanations and installation guides, please <a href="#" id="openDocumentationLinkHelp">view the full documentation page</a>.</em></p>
+                    <h4>Main Action:</h4>
+                    <p><strong>Hide Jobs on This Page:</strong> Clicks the "Dismiss" (X) button on visible jobs on the current LinkedIn job search/collection page, then tries to navigate to the next page.</p>
+
+                    <h4>Company Flags Data Management</h4>
+                    <p>These actions allow you to manage your stored company flag data directly:</p>
+                    
+                    <button id="clearFlags" class="action-button secondary">Clear All Flagged Companies</button>
+                    <p style="margin-top: 0.5em; margin-bottom: 1em;">Removes ALL companies and notes you have flagged using this extension. This action cannot be undone.</p>
+
+                    <button id="exportFlags" class="action-button secondary">Export Flagged Companies</button>
+                    <p style="margin-top: 0.5em; margin-bottom: 1em;">Downloads a CSV file (<code>flagged_companies_YYYY-MM-DD.csv</code>) containing all your currently flagged companies, their flag type (red/green/yellow), and their notes. Useful for backup or sharing.</p>
+
+                    <button id="importFlags" class="action-button secondary">Import Flagged Companies</button>
+                    <p style="margin-top: 0.5em; margin-bottom: 1em;">Allows you to select a CSV file (in the same format as the export) to add or update flagged companies. The CSV must have headers: "Company Name", "Flag Type", "Note". Existing flags will be overwritten. If "Flag Type" or "Note" is empty for a company in the file, any existing flag for that company will be removed.</p>
+
+
+                    <h4>Quick Info Buttons (on LinkedIn pages):</h4>
+                    <ul>
+                        <li>Small buttons near company/job titles for quick Google/LinkedIn searches (Salary, Tech Stack, News, Contacts).</li>
+                    </ul>
+
+                    <h4>Flagging Companies (on LinkedIn job details page):</h4>
+                    <p>This feature adds a "Flag Company" button to job details pages and company profile pages.</p>
+                    <ul>
+                        <li>Follow the prompts to add/edit a note and choose the flag type (Red 🚩 for negative/avoid, Yellow ⚠️ for neutral/caution, Green ✅ for positive/pursue).</li>
+                        <li>Leaving the note blank during add/edit will cancel or prompt for removal.</li>
+                        <li>A 🚩, ⚠️, or ✅ symbol will appear next to the company name in the job list.</li>
+                        <li>A colored box with the note will appear below the company info in the job details view and on company profile pages.</li>
+                        <li>The button text changes to "Flagged 🚩/⚠️/✅" if a flag exists. Clicking it allows editing the note, changing the type, or removing the flag.</li>
+                    </ul>
+
+                    <h4>Troubleshooting:</h4>
+                    <ul>
+                        <li><strong>Buttons (Hide/Flag/Track/Info) Not Appearing:</strong>
+                            <ul>
+                                <li>Ensure you are on a LinkedIn job search page (<code>/jobs/search/</code>), collections page (<code>/jobs/collections/</code>), job details page (<code>/jobs/view/...</code>), or company page (<code>/company/...</code>).</li>
+                                <li>Try reloading the LinkedIn page (Ctrl+R or Cmd+R).</li>
+                                <li>Check the browser console (F12 -> Console) for error messages starting with "[LinkedIn Job Hider]", "[LinkedIn Job Flagger]", or "[Company Info]".</li>
+                            </ul>
+                        </li>
+                        <li><strong>"Hide Jobs" Doesn't Work / Stops:</strong>
+                            <ul>
+                                <li>LinkedIn may have changed its page structure. The script might need updating.</li>
+                                <li>The script has delays to avoid overwhelming LinkedIn. If it seems stuck, wait a few seconds or reload the page and try again.</li>
+                                <li>If using keyword filters, ensure they are not too broad.</li>
+                                <li>Check the console for errors during the hiding process.</li>
+                            </ul>
+                        </li>
+                         <li><strong>Flags/Info Not Updating After Action:</strong>
+                            <ul>
+                                <li>The page might need a moment to update. Wait a few seconds.</li>
+                                <li>If using Import/Clear from the popup, the page should refresh automatically if you have a LinkedIn tab active. If not, reload manually.</li>
+                                <li>Check the console for storage errors or message passing errors.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Import Fails:</strong>
+                            <ul>
+                                <li>Ensure the file is a <code>.csv</code> file.</li>
+                                <li>Ensure the format matches the export: three columns with headers "Company Name", "Flag Type", "Note". Valid types are "red", "green", "yellow".</li>
+                                <li>Check the console for parsing errors.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <input type="file" id="importFile" accept=".csv">
+    </div>
+
+</body>
+</html>

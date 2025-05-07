@@ -1,0 +1,329 @@
+/* popup.css - Redone for a more modern look */
+
+:root {
+    --linkedin-blue: #0a66c2;
+    --linkedin-blue-dark: #004182;
+    --linkedin-blue-darker: #003366;
+    --linkedin-background: #f3f2ef; /* Main page background */
+    --popup-background: #ffffff;    /* Popup's own background */
+    --text-primary: #191919;
+    --text-secondary: #5e5e5e;
+    --text-light: #7f7f7f;
+    --border-color: #e0e0e0;       /* Softer border */
+    --border-color-light: #ebebeb;
+    --button-secondary-bg: #e1e9ee;
+    --button-secondary-hover-bg: #d1dde5;
+    --button-secondary-active-bg: #c1cdd6;
+    --success-green: #00734f;
+    --warning-yellow: #c39500;
+    --danger-red: #a94442; /* Kept from original for consistency with flags */
+    --focus-ring-color: #7ab3ef;
+
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --border-radius-sm: 4px;
+    --border-radius-md: 6px;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background-color: var(--popup-background);
+    width: 450px;
+    min-height: 300px;
+    max-height: 580px;
+    overflow-y: auto;
+    padding: 20px; /* Increased padding */
+    font-family: var(--font-family);
+    color: var(--text-primary);
+    box-sizing: border-box;
+    line-height: 1.5; /* Improved default line height */
+    display: flex; /* Make body a flex container */
+    flex-direction: column; /* Stack title and container vertically */
+}
+
+/* Scrollbar styling for a more modern feel (Webkit browsers) */
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--linkedin-background);
+    border-radius: var(--border-radius-sm);
+}
+body::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: var(--border-radius-sm);
+    border: 2px solid var(--linkedin-background);
+
+}
+body::-webkit-scrollbar-thumb:hover {
+    background-color: var(--text-secondary);
+}
+
+h3.popup-title {
+    text-align: center;
+    color: var(--linkedin-blue);
+    margin-top: 0;
+    margin-bottom: 20px; /* Increased space */
+    font-weight: 600;
+    font-size: 1.3em; /* Slightly larger */
+    line-height: 1.3;
+    flex-shrink: 0; /* Prevent title from shrinking if content grows too much */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allow .container to grow and fill remaining space in body */
+    min-height: 0; /* Important for flex children that grow, prevents overflow */
+}
+
+h4 { /* General h4 styling for sections */
+    font-size: 1.1em;
+    color: var(--text-primary);
+    margin-top: 20px; /* Space above section titles */
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color-light);
+    font-weight: 500;
+    flex-shrink: 0; /* Prevent h4 from shrinking */
+}
+/* First h4 in a tab content might not need top margin */
+.tab-content > h4:first-child {
+    margin-top: 0;
+}
+
+
+/* --- Tabs --- */
+.tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px; /* Increased space */
+    flex-shrink: 0; /* Prevent tabs from shrinking */
+}
+
+.tab-button {
+    flex-grow: 1;
+    padding: 12px 15px; /* Increased padding */
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    font-size: 1em; /* Slightly larger */
+    text-align: center;
+}
+
+.tab-button:hover {
+    color: var(--linkedin-blue);
+}
+
+.tab-button.active {
+    color: var(--linkedin-blue);
+    border-bottom-color: var(--linkedin-blue);
+}
+
+.tab-button:focus-visible { /* Modern focus */
+    outline: 2px solid var(--focus-ring-color);
+    outline-offset: -2px; /* Inside border */
+    border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease-out;
+    /* flex-grow and min-height will be applied to .active */
+}
+
+.tab-content.active {
+    display: block;
+    flex-grow: 1; /* Make the active tab content fill available vertical space */
+    min-height: 0; /* Allow it to shrink if necessary, works with flex-grow */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Specific layout for #actionsContent when it's active */
+#actionsContent.active {
+    display: flex; /* Override display: block from .tab-content.active */
+    flex-direction: column;
+    justify-content: center; /* Vertically center its direct children */
+    /* align-items: center; /* Horizontally center (button is 100% width, so not critical) */
+}
+
+/* --- General Action Buttons (Primary & Secondary) --- */
+.action-button {
+    width: 100%;
+    padding: 12px 18px; /* Generous padding */
+    margin-top: 12px;
+    border: 1px solid transparent; /* Base border */
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    text-align: center;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, transform 0.1s ease;
+    box-shadow: var(--shadow-sm);
+}
+.action-button:hover {
+    box-shadow: var(--shadow-md);
+}
+.action-button:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+.action-button:focus-visible {
+    outline: 2px solid var(--focus-ring-color);
+    outline-offset: 2px;
+}
+
+.action-button.primary {
+    background-color: var(--linkedin-blue);
+    color: white;
+    border-color: var(--linkedin-blue);
+}
+.action-button.primary:hover {
+    background-color: var(--linkedin-blue-dark);
+    border-color: var(--linkedin-blue-dark);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.action-button.primary:active {
+    background-color: var(--linkedin-blue-darker);
+    border-color: var(--linkedin-blue-darker);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transform: translateY(1px);
+}
+
+.action-button.secondary {
+    background-color: var(--button-secondary-bg);
+    color: var(--text-primary);
+    border-color: #ced9e0; /* Slightly darker border for secondary */
+}
+.action-button.secondary:hover {
+    background-color: var(--button-secondary-hover-bg);
+    border-color: #c1cdd6;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.action-button.secondary:active {
+    background-color: var(--button-secondary-active-bg);
+    border-color: #b0c4d1;
+    transform: translateY(1px);
+}
+
+/* Adjust button margin if it's the direct child of the centered #actionsContent */
+#actionsContent.active > #buttonHide.action-button.primary {
+    margin-top: 0; /* Remove default top margin to allow true centering */
+}
+
+/* Add some space between secondary buttons in the Actions tab */
+#clearFlags, #exportFlags {
+    margin-bottom: 12px; /* Consistent margin */
+}
+
+/* Hide the actual file input */
+#importFile {
+   display: none;
+}
+
+/* Separator */
+hr {
+   border: none;
+   border-top: 1px solid var(--border-color-light);
+   margin: 25px 0; /* More vertical space */
+}
+
+/* --- Help Section Styles --- */
+details {
+   margin-top: 0; /* Handled by tab content spacing */
+   background-color: #f9f9f9; /* Lighter than body for contrast */
+   border: 1px solid var(--border-color-light);
+   border-radius: var(--border-radius-md);
+   /* padding: 5px 10px; Removed, use summary/content padding */
+   box-shadow: var(--shadow-sm);
+}
+
+summary {
+   font-weight: 600;
+   color: var(--linkedin-blue);
+   cursor: pointer;
+   padding: 12px 15px; /* Good padding */
+   outline: none;
+   list-style: none; /* Remove default marker */
+   position: relative;
+   transition: background-color 0.2s ease;
+}
+summary:hover {
+    background-color: #f0f0f0;
+}
+summary:focus-visible {
+    box-shadow: 0 0 0 2px var(--focus-ring-color) inset;
+}
+summary::before { /* Custom marker */
+   content: ''; /* Cleared for SVG background/mask */
+   font-size: 0.8em;
+   margin-right: 10px;
+   display: inline-block;
+   width: 0.8em;  /* Icon size, relative to summary font */
+   height: 0.8em; /* Icon size */
+   background-color: var(--text-secondary); /* This will be the color of the icon */
+   
+   -webkit-mask-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M4.646%201.646a.5.5%200%200%201%20.708%200l6%206a.5.5%200%200%201%200%20.708l-6%206a.5.5%200%200%201-.708-.708L10.293%208%204.646%202.354a.5.5%200%200%201%200-.708z%22%20fill%3D%22%23000000%22%2F%3E%3C%2Fsvg%3E');
+   mask-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M4.646%201.646a.5.5%200%200%201%20.708%200l6%206a.5.5%200%200%201%200%20.708l-6%206a.5.5%200%200%201-.708-.708L10.293%208%204.646%202.354a.5.5%200%200%201%200-.708z%22%20fill%3D%22%23000000%22%2F%3E%3C%2Fsvg%3E');
+   -webkit-mask-size: contain;
+   mask-size: contain;
+   -webkit-mask-repeat: no-repeat;
+   mask-repeat: no-repeat;
+   -webkit-mask-position: center;
+   mask-position: center;
+   vertical-align: -0.1em; /* Fine-tune vertical alignment */
+   transition: transform 0.2s ease-in-out;
+}
+details[open] > summary::before {
+   transform: rotate(90deg);
+}
+summary::-webkit-details-marker { /* Hide default marker in WebKit */
+   display: none;
+}
+
+.help-content {
+   padding: 0px 15px 15px 15px; /* Padding around content, top handled by summary */
+   font-size: 0.9em;
+   line-height: 1.6;
+   color: var(--text-secondary);
+   border-top: 1px solid var(--border-color-light); /* Separator */
+}
+.help-content h4 {
+   margin-top: 15px;
+   margin-bottom: 8px;
+   font-size: 1.05em; /* Relative to help-content */
+   color: var(--text-primary);
+   border-bottom: none; /* Remove default h4 border inside help */
+   padding-bottom: 0;
+}
+.help-content p, .help-content ul {
+   margin-top: 0;
+   margin-bottom: 12px;
+}
+.help-content ul {
+   padding-left: 20px;
+}
+.help-content ul li { /* Style list items in help */
+    margin-bottom: 6px;
+}
+.help-content code {
+   background-color: #e8e8e8;
+   padding: 2px 5px;
+   border-radius: var(--border-radius-sm);
+   font-size: 0.95em;
+   color: var(--text-primary);
+}
+.help-content strong {
+    color: var(--text-primary);
+    font-weight: 500;
+}

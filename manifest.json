@@ -1,0 +1,51 @@
+{
+    "name": "LinkedIn Job Helper",
+    "manifest_version": 3,
+    "version": "1.0.0",
+    "description": "Hide LinkedIn Jobs You've Viewed, Flag Companies, Search Company Info, and more.",
+    "author": "Matt Fox",
+    "icons": {
+              "128": "/images/icons/icon128.png" },
+
+    "action": {
+        "default_popup": "popup.html"
+    },
+    
+    "background": {
+        "service_worker": "background.js"
+      },
+
+    "permissions": [
+        "tabs","storage","activeTab","scripting","identity"
+    ],
+    "content_scripts": [
+        {
+          "matches": [
+            "*://*.linkedin.com/jobs/search/*",
+            "*://*.linkedin.com/jobs/collections/*"
+          ],
+          "js" : [
+              "insertButton.js",
+              "flagCompany.js",
+              "glassdoorIntegration.js"
+          ],
+          "run_at": "document_idle"
+        },
+        {
+          "matches": [
+            "*://*.linkedin.com/jobs/view/*",
+            "*://*.linkedin.com/company/*"
+          ],
+          "js" : [
+              "flagCompany.js",
+              "glassdoorIntegration.js"
+          ],
+          "run_at": "document_idle"
+        }
+
+    ],
+    "host_permissions": [
+        "https://*.linkedin.com/*"
+    ]
+
+}
