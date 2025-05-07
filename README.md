@@ -23,6 +23,9 @@ Click the LinkedIn Job Helper icon in your Chrome toolbar to open the popup.
 
 *   **Hide Jobs on This Page:** When on a LinkedIn job search or collections page, this button attempts to click the "Dismiss" (X) button on all visible jobs. It will then try to navigate to the next page of results.
 
+*   ![Hide Jobs Button](https://github.com/MaffyxProjects/LinkedIn-Job-Helper/blob/main/Screenshot%202025-04-22%20151021.png?raw=true)
+
+
 #### Help Tab:
 
 *   **Main Action Explanation:** Details about the "Hide Jobs on This Page" button.
