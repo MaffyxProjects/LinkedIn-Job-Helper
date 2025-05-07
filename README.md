@@ -21,12 +21,12 @@ Click the LinkedIn Job Helper icon in your Chrome toolbar to open the popup.
 
 #### Actions Tab:
 
+![Hide Jobs Button in Popup](https://github.com/MaffyxProjects/LinkedIn-Job-Helper/blob/main/Screenshot%202025-05-07%20101423.png?raw=true)
+
 *   **Hide Jobs on This Page:** When on a LinkedIn job search or collections page, this button attempts to click the "Dismiss" (X) button on all visible jobs. It will then try to navigate to the next page of results.
 
-*   ![Hide Jobs Button](https://github.com/MaffyxProjects/LinkedIn-Job-Helper/blob/main/Screenshot%202025-04-22%20151021.png?raw=true)
-
-
 #### Help Tab:
+![Help and Troubleshooting](https://github.com/MaffyxProjects/LinkedIn-Job-Helper/blob/main/Screenshot%202025-05-07%20101436.png?raw=true)
 
 *   **Main Action Explanation:** Details about the "Hide Jobs on This Page" button.
 *   **Company Flags Data Management:**
@@ -41,11 +41,21 @@ Click the LinkedIn Job Helper icon in your Chrome toolbar to open the popup.
 
 #### "Hide Jobs" Button (on Job Search/Collections Pages)
 
+![Hide Jobs Button](https://github.com/MaffyxProjects/LinkedIn-Job-Helper/blob/main/Screenshot%202025-04-22%20151021.png?raw=true)
+
 An additional "Hide Jobs" button is inserted near the pagination controls on LinkedIn job search and collections pages. Clicking this button performs the same action as the "Hide Jobs on This Page" button in the popup.
 
-#### Flagging Companies
+#### Flagging Companies & Quick Info Buttons ("Company Info...")
+
+![Flag Company and Company Info Buttons on company page](https://github.com/MaffyxProjects/LinkedIn-Job-Helper/blob/main/Screenshot%202025-05-07%20095306.png?raw=true)
 
 On LinkedIn job details pages and company profile pages, a "Flag Company..." button will appear.
+
+![Flag Dropdown](https://github.com/MaffyxProjects/LinkedIn-Job-Helper/blob/main/Screenshot%202025-05-07%20095618.png?raw=true)
+
+![Setting Flag Note](https://github.com/MaffyxProjects/LinkedIn-Job-Helper/blob/main/Screenshot%202025-05-07%20102627.png?raw=true)
+![Note Set Confirmation](https://github.com/MaffyxProjects/LinkedIn-Job-Helper/blob/main/Screenshot%202025-05-07%20102636.png?raw=true)
+![Note Example on page](https://github.com/MaffyxProjects/LinkedIn-Job-Helper/blob/main/Screenshot%202025-05-07%20102641.png?raw=true)
 
 *   Click this button to open a dropdown menu.
 *   Select a flag type:
@@ -58,7 +68,11 @@ On LinkedIn job details pages and company profile pages, a "Flag Company..." but
     *   A colored box displaying your note will appear on the job details page and company profile page.
     *   The button text changes to "Flagged 🚩/⚠️/✅". Clicking it again allows you to edit the note, change the flag type, or remove the flag.
 
-#### Quick Info Buttons ("Company Info...")
+![Green Flag](https://github.com/MaffyxProjects/LinkedIn-Job-Helper/blob/main/Screenshot%202025-05-07%20095823.png?raw=true)
+![Yellow Flag](https://github.com/MaffyxProjects/LinkedIn-Job-Helper/blob/main/Screenshot%202025-05-07%20095840.png?raw=true)
+![Red Flag](https://github.com/MaffyxProjects/LinkedIn-Job-Helper/blob/main/Screenshot%202025-05-07%20095804.png?raw=true)
+![Long Note Warning](https://github.com/MaffyxProjects/LinkedIn-Job-Helper/blob/main/Screenshot%202025-05-07%20100856.png?raw=true)
+
 
 A "Company Info..." button appears on:
 
@@ -67,6 +81,8 @@ A "Company Info..." button appears on:
 *   Company profile pages (in the top card actions).
 
 Clicking this button reveals a dropdown menu with quick links:
+
+![Company Info Expanded](https://github.com/MaffyxProjects/LinkedIn-Job-Helper/blob/main/Screenshot%202025-05-07%20095633.png?raw=true)
 
 *   **Glassdoor Search:** Opens a Google search for the company's Glassdoor reviews.
 *   **Careers Page:** Opens a Google search for the company's careers/jobs page.
